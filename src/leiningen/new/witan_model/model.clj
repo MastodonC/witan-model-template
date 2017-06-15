@@ -22,7 +22,9 @@
   (reify p/IModelLibrary
     (available-fns [_]
       (map-fn-meta
-       ;; Add the functions defined in core.clj and included in the model catalog
+       ;; Replace 'model-functions' by the names of the functions
+       ;; defined in core.clj and included in the model catalog
+       model-functions
        ))
     (available-models [_]
       (map-model-meta {{name}}))))
