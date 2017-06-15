@@ -8,9 +8,23 @@
               [{{name}}.core :as c]))
 
 (defmodel {{name}}
-  "Defines the household model. Contains metadata,
+  "Defines the model. Contains metadata,
    and the model workflow + catalog."
   {:witan/name :model/{{name}}
    :witan/version "1.0.0"}
   {:workflow model-workflow
    :catalog model-catalog})
+
+(defn model-library
+  "Lists all the available functions to execute each
+   step of the model and list the available model."
+  []
+  (reify p/IModelLibrary
+    (available-fns [_]
+      (map-fn-meta
+       ;; Replace 'model-functions' by the names of the functions
+       ;; defined in core.clj and included in the model catalog
+       model-functions
+       ))
+    (available-models [_]
+      (map-model-meta {{name}}))))
