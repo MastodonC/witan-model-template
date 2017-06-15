@@ -1,6 +1,6 @@
 # witan-model
 
-A Leiningen template to create models for our city modelling platform, Witan.
+A Leiningen template to create models for our city modelling platform, [Witan](http://www.mastodonc.com/products/witan/).
 
 The project has all the dependencies and structure to be run using the [workspace-executor](https://github.com/MastodonC/witan.workspace-executor/).
 
