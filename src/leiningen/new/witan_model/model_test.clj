@@ -29,8 +29,8 @@
                         (is (not (s/check param-schema params)))))))))))))
     (testing "The catalog entries are existing functions"
       (let [library-fns (map #(:witan/impl %) funs)
-            model-ns-list (map str (keys (ns-publics 'witan.models.household)))
-            model-ns-fns (map #(keyword (format "witan.models.household/%s" %)) model-ns-list)]
+            model-ns-list (map str (keys (ns-publics '{{name}}.core)))
+            model-ns-fns (map #(keyword (format "{{name}}.core/%s" %)) model-ns-list)]
         (is (every? (set model-ns-fns) library-fns))))
     (testing "Are there duplicates in contracts?"
       (let [counts-by-key (reduce (fn [a [k v]]

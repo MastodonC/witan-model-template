@@ -8,7 +8,7 @@
               [{{name}}.core :as c]))
 
 (defmodel {{name}}
-  "Defines the household model. Contains metadata,
+  "Defines the model. Contains metadata,
    and the model workflow + catalog."
   {:witan/name :model/{{name}}
    :witan/version "1.0.0"}

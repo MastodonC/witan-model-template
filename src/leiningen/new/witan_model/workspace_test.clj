@@ -29,5 +29,7 @@
           workspace'    (s/with-fn-validation (wex/build! workspace))
           result        (apply merge (wex/run!! workspace' {}))]
       (is result)
-      ;; Add a test to check the expected keys are present in the result map
+      ;; Replace 'test-model-outputs' by a test
+      ;; to check the expected keys are present in the result map
+      test-model-outputs
       )))

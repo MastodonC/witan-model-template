@@ -32,9 +32,17 @@ This namespace expects schemas for the inputs and outputs of the calculation fun
 I have added helper functions and examples of what those schemas can look like.
 And the following files in the `test` directory:
 * [`acceptance/workspace_test.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/workspace_test.clj)
+This workspace is there to check as you build your Witan model that it can indeed be run using the `witan.executor`.
+Note: When using the [`xml-to-model-structure`](https://github.com/MastodonC/xml-to-model-structure) tool to generate the model it will replace `test-model-outputs` by the relevant test (feature not implemented, yet)
 * [`core_test.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/core_test.clj)
+This namespace expects unit tests for the calculation functions you will define in the `core.clj` namespace.
+It already contains an example to get in testing input files and coerce them using a schema.
 * [`model_test.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/model_test.clj)
+This namespace checks that the structure of the model defined in `model.clj` is valid.
+Catalog entries must be valid and the catalog function should correspond to functions defined in `core.clj`.
 * [`test_utils.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/test_utils.clj)
+This namespace defines helper functions used in test namespaces.
+The functions are used to load testing datasets fron CSV files and coerce them using schemas (defined in `schemas.clj`).
 
 
 **NOTE**
