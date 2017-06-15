@@ -15,32 +15,32 @@ Here are a few examples of Witan models:
 As with most Leiningen templates, it includes a [`README.md`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/README.md), a [`project.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/project.clj) and a [`.gitignore`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/gitignore).
 
 This template will create the following files in the `src/` directory:
-* [`core.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/core.clj)
+### [`core.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/core.clj)
 This namespace expects functions to define the calculation for the model.
 For a Witan model that means using the macros from the `workspace-api`:
-	* `definput` for functions to get the model input datasets
-	* `defworkflowfn` for functions performing data transformation or calculations
-	* `defworkflowpred` for predicate functions, usually to exit a projection loop
-	* `defworkflowoutput` for functions to get the model output datasets
-* [`model.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/model.clj)
+* `definput` for functions to get the model input datasets
+* `defworkflowfn` for functions performing data transformation or calculations
+* `defworkflowpred` for predicate functions, usually to exit a projection loop
+* `defworkflowoutput` for functions to get the model output datasets
+### [`model.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/model.clj)
 This namespace expects code to define the structure of the model. It also uses tools from the `workspace-api`:
-	* `defmodel` to create a data structure with metatdata and data on the model. It contains both info on the model's steps (`:workflow`) and further info on each step (`:catalog`).
-	* `model-library` to list available `defmodels` and available function for each model.
+* `defmodel` to create a data structure with metatdata and data on the model. It contains both info on the model's steps (`:workflow`) and further info on each step (`:catalog`).
+* `model-library` to list available `defmodels` and available function for each model.
 Note: When using the [`xml-to-model-structure`](https://github.com/MastodonC/xml-to-model-structure) tool to generate the model from a flowchart, the variable names `model-workflow`, `model-catalog` and `model-functions` get replaced by the actual workflow, catalog and list of functions (list of functions not yet implemented).
-* [`schemas.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/schemas.clj)
+### [`schemas.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/schemas.clj)
 This namespace expects schemas for the inputs and outputs of the calculation functions.
 I have added helper functions and examples of what those schemas can look like.
 And the following files in the `test` directory:
-* [`acceptance/workspace_test.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/workspace_test.clj)
+### [`acceptance/workspace_test.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/workspace_test.clj)
 This workspace is there to check as you build your Witan model that it can indeed be run using the `witan.executor`.
 Note: When using the [`xml-to-model-structure`](https://github.com/MastodonC/xml-to-model-structure) tool to generate the model it will replace `test-model-outputs` by the relevant test (feature not implemented, yet)
-* [`core_test.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/core_test.clj)
+### [`core_test.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/core_test.clj)
 This namespace expects unit tests for the calculation functions you will define in the `core.clj` namespace.
 It already contains an example to get in testing input files and coerce them using a schema.
-* [`model_test.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/model_test.clj)
+### [`model_test.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/model_test.clj)
 This namespace checks that the structure of the model defined in `model.clj` is valid.
 Catalog entries must be valid and the catalog function should correspond to functions defined in `core.clj`.
-* [`test_utils.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/test_utils.clj)
+### [`test_utils.clj`](https://github.com/MastodonC/witan-model-template/blob/master/src/leiningen/new/witan_model/test_utils.clj)
 This namespace defines helper functions used in test namespaces.
 The functions are used to load testing datasets fron CSV files and coerce them using schemas (defined in `schemas.clj`).
 
